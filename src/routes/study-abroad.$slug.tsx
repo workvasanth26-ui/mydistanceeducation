@@ -57,7 +57,7 @@ function CountryPage() {
             <div>
               <h2 className="text-2xl font-bold text-primary flex items-center gap-2"><Sparkles className="h-5 w-5 text-brand" /> Highlights</h2>
               <ul className="mt-4 grid sm:grid-cols-2 gap-2">
-                {c.highlights.map((h) => (
+                {c.highlights.map((h: string) => (
                   <li key={h} className="flex gap-2 text-sm"><CheckCircle2 className="h-4 w-4 text-success mt-0.5 shrink-0" />{h}</li>
                 ))}
               </ul>
@@ -66,7 +66,7 @@ function CountryPage() {
             <div>
               <h2 className="text-2xl font-bold text-primary flex items-center gap-2"><BookOpen className="h-5 w-5 text-brand" /> Popular courses in {c.name}</h2>
               <div className="mt-4 flex flex-wrap gap-2">
-                {c.popularCourses.map((p) => (
+                {c.popularCourses.map((p: string) => (
                   <span key={p} className="rounded-full border border-border bg-secondary/60 px-3 py-1.5 text-xs font-medium">{p}</span>
                 ))}
               </div>
@@ -75,7 +75,7 @@ function CountryPage() {
             <div>
               <h2 className="text-2xl font-bold text-primary flex items-center gap-2"><MapPin className="h-5 w-5 text-brand" /> Why study in {c.name}?</h2>
               <ul className="mt-4 grid sm:grid-cols-2 gap-2">
-                {c.whyStudy.map((p) => (
+                {c.whyStudy.map((p: string) => (
                   <li key={p} className="flex gap-2 text-sm"><span className="mt-2 h-1.5 w-1.5 rounded-full bg-brand" />{p}</li>
                 ))}
               </ul>
