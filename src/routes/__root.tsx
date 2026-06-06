@@ -77,14 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Mydistanceeducation" },
+      { name: "description", content: "Pixel Perfect Match displays university information and details on internal pages." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Mydistanceeducation" },
+      { property: "og:description", content: "Pixel Perfect Match displays university information and details on internal pages." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Mydistanceeducation" },
+      { name: "twitter:description", content: "Pixel Perfect Match displays university information and details on internal pages." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/bac51d44-4157-434e-b4f4-5678ddd2fb96/id-preview-fbcca90f--c5c8597a-ab88-479c-8bc6-bb7a44a27d9a.lovable.app-1780743251917.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/bac51d44-4157-434e-b4f4-5678ddd2fb96/id-preview-fbcca90f--c5c8597a-ab88-479c-8bc6-bb7a44a27d9a.lovable.app-1780743251917.png" },
     ],
     links: [
       {
