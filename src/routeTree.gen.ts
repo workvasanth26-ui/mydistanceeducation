@@ -9,23 +9,19 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as UniversitiesRouteImport } from './routes/universities'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as UniversitiesIndexRouteImport } from './routes/universities.index'
 import { Route as StudyAbroadIndexRouteImport } from './routes/study-abroad.index'
 import { Route as OnlineUgProgramsIndexRouteImport } from './routes/online-ug-programs.index'
 import { Route as OnlinePgProgramsIndexRouteImport } from './routes/online-pg-programs.index'
+import { Route as UniversitiesSlugRouteImport } from './routes/universities.$slug'
 import { Route as StudyAbroadSlugRouteImport } from './routes/study-abroad.$slug'
 import { Route as OnlineUgProgramsSlugRouteImport } from './routes/online-ug-programs.$slug'
 import { Route as OnlinePgProgramsSlugRouteImport } from './routes/online-pg-programs.$slug'
 
-const UniversitiesRoute = UniversitiesRouteImport.update({
-  id: '/universities',
-  path: '/universities',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
   id: '/privacy-policy',
   path: '/privacy-policy',
@@ -46,6 +42,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const UniversitiesIndexRoute = UniversitiesIndexRouteImport.update({
+  id: '/universities/',
+  path: '/universities/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StudyAbroadIndexRoute = StudyAbroadIndexRouteImport.update({
   id: '/study-abroad/',
   path: '/study-abroad/',
@@ -59,6 +60,11 @@ const OnlineUgProgramsIndexRoute = OnlineUgProgramsIndexRouteImport.update({
 const OnlinePgProgramsIndexRoute = OnlinePgProgramsIndexRouteImport.update({
   id: '/online-pg-programs/',
   path: '/online-pg-programs/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UniversitiesSlugRoute = UniversitiesSlugRouteImport.update({
+  id: '/universities/$slug',
+  path: '/universities/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const StudyAbroadSlugRoute = StudyAbroadSlugRouteImport.update({
@@ -82,26 +88,28 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
-  '/universities': typeof UniversitiesRoute
   '/online-pg-programs/$slug': typeof OnlinePgProgramsSlugRoute
   '/online-ug-programs/$slug': typeof OnlineUgProgramsSlugRoute
   '/study-abroad/$slug': typeof StudyAbroadSlugRoute
+  '/universities/$slug': typeof UniversitiesSlugRoute
   '/online-pg-programs/': typeof OnlinePgProgramsIndexRoute
   '/online-ug-programs/': typeof OnlineUgProgramsIndexRoute
   '/study-abroad/': typeof StudyAbroadIndexRoute
+  '/universities/': typeof UniversitiesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
-  '/universities': typeof UniversitiesRoute
   '/online-pg-programs/$slug': typeof OnlinePgProgramsSlugRoute
   '/online-ug-programs/$slug': typeof OnlineUgProgramsSlugRoute
   '/study-abroad/$slug': typeof StudyAbroadSlugRoute
+  '/universities/$slug': typeof UniversitiesSlugRoute
   '/online-pg-programs': typeof OnlinePgProgramsIndexRoute
   '/online-ug-programs': typeof OnlineUgProgramsIndexRoute
   '/study-abroad': typeof StudyAbroadIndexRoute
+  '/universities': typeof UniversitiesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -109,13 +117,14 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
-  '/universities': typeof UniversitiesRoute
   '/online-pg-programs/$slug': typeof OnlinePgProgramsSlugRoute
   '/online-ug-programs/$slug': typeof OnlineUgProgramsSlugRoute
   '/study-abroad/$slug': typeof StudyAbroadSlugRoute
+  '/universities/$slug': typeof UniversitiesSlugRoute
   '/online-pg-programs/': typeof OnlinePgProgramsIndexRoute
   '/online-ug-programs/': typeof OnlineUgProgramsIndexRoute
   '/study-abroad/': typeof StudyAbroadIndexRoute
+  '/universities/': typeof UniversitiesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -124,39 +133,42 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/privacy-policy'
-    | '/universities'
     | '/online-pg-programs/$slug'
     | '/online-ug-programs/$slug'
     | '/study-abroad/$slug'
+    | '/universities/$slug'
     | '/online-pg-programs/'
     | '/online-ug-programs/'
     | '/study-abroad/'
+    | '/universities/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/contact'
     | '/privacy-policy'
-    | '/universities'
     | '/online-pg-programs/$slug'
     | '/online-ug-programs/$slug'
     | '/study-abroad/$slug'
+    | '/universities/$slug'
     | '/online-pg-programs'
     | '/online-ug-programs'
     | '/study-abroad'
+    | '/universities'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/contact'
     | '/privacy-policy'
-    | '/universities'
     | '/online-pg-programs/$slug'
     | '/online-ug-programs/$slug'
     | '/study-abroad/$slug'
+    | '/universities/$slug'
     | '/online-pg-programs/'
     | '/online-ug-programs/'
     | '/study-abroad/'
+    | '/universities/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -164,24 +176,18 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
-  UniversitiesRoute: typeof UniversitiesRoute
   OnlinePgProgramsSlugRoute: typeof OnlinePgProgramsSlugRoute
   OnlineUgProgramsSlugRoute: typeof OnlineUgProgramsSlugRoute
   StudyAbroadSlugRoute: typeof StudyAbroadSlugRoute
+  UniversitiesSlugRoute: typeof UniversitiesSlugRoute
   OnlinePgProgramsIndexRoute: typeof OnlinePgProgramsIndexRoute
   OnlineUgProgramsIndexRoute: typeof OnlineUgProgramsIndexRoute
   StudyAbroadIndexRoute: typeof StudyAbroadIndexRoute
+  UniversitiesIndexRoute: typeof UniversitiesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/universities': {
-      id: '/universities'
-      path: '/universities'
-      fullPath: '/universities'
-      preLoaderRoute: typeof UniversitiesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/privacy-policy': {
       id: '/privacy-policy'
       path: '/privacy-policy'
@@ -210,6 +216,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/universities/': {
+      id: '/universities/'
+      path: '/universities'
+      fullPath: '/universities/'
+      preLoaderRoute: typeof UniversitiesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/study-abroad/': {
       id: '/study-abroad/'
       path: '/study-abroad'
@@ -229,6 +242,13 @@ declare module '@tanstack/react-router' {
       path: '/online-pg-programs'
       fullPath: '/online-pg-programs/'
       preLoaderRoute: typeof OnlinePgProgramsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/universities/$slug': {
+      id: '/universities/$slug'
+      path: '/universities/$slug'
+      fullPath: '/universities/$slug'
+      preLoaderRoute: typeof UniversitiesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/study-abroad/$slug': {
@@ -260,13 +280,14 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
-  UniversitiesRoute: UniversitiesRoute,
   OnlinePgProgramsSlugRoute: OnlinePgProgramsSlugRoute,
   OnlineUgProgramsSlugRoute: OnlineUgProgramsSlugRoute,
   StudyAbroadSlugRoute: StudyAbroadSlugRoute,
+  UniversitiesSlugRoute: UniversitiesSlugRoute,
   OnlinePgProgramsIndexRoute: OnlinePgProgramsIndexRoute,
   OnlineUgProgramsIndexRoute: OnlineUgProgramsIndexRoute,
   StudyAbroadIndexRoute: StudyAbroadIndexRoute,
+  UniversitiesIndexRoute: UniversitiesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
