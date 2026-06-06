@@ -5,7 +5,7 @@ import { PageHero, Section, CTAButton } from "@/components/ui-bits";
 import { EnquiryForm } from "@/components/enquiry-form";
 import { UNIVERSITIES } from "@/data/universities";
 
-export const Route = createFileRoute("/universities")({
+export const Route = createFileRoute("/universities/")({
   head: () => ({
     meta: [
       { title: "Top Online Universities in India | UGC-Entitled Online Degrees" },
