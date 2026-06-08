@@ -1,6 +1,9 @@
 import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ShieldCheck } from "lucide-react";
+import ugc from "@/assets/ugc.png.asset.json";
+import aicte from "@/assets/aicte.png.asset.json";
+import naac from "@/assets/naac.png.asset.json";
 
 export function Section({ children, className = "", id }: { children: ReactNode; className?: string; id?: string }) {
   return (
@@ -26,12 +29,16 @@ export function CTAButton({
   children,
   variant = "primary",
   className = "",
+  target,
+  rel,
 }: {
   to?: string;
   href?: string;
   children: ReactNode;
   variant?: "primary" | "secondary" | "outline" | "ghost";
   className?: string;
+  target?: string;
+  rel?: string;
 }) {
   const base =
     "inline-flex items-center justify-center gap-1.5 rounded-md px-5 py-3 text-sm font-semibold transition shadow-soft";
@@ -42,7 +49,7 @@ export function CTAButton({
     ghost: "text-primary hover:bg-accent shadow-none",
   }[variant];
   const cls = `${base} ${styles} ${className}`;
-  if (href) return <a href={href} className={cls}>{children}</a>;
+  if (href) return <a href={href} target={target} rel={rel} className={cls}>{children}</a>;
   if (to) return <Link to={to} className={cls}>{children}</Link>;
   return <button className={cls}>{children}</button>;
 }
@@ -96,5 +103,63 @@ export function CheckList({ items }: { items: string[] }) {
         </li>
       ))}
     </ul>
+  );
+}
+
+export function Flag({ code, name, className = "" }: { code: string; name: string; className?: string }) {
+  return (
+    <img
+      src={`https://flagcdn.com/w160/${code}.png`}
+      srcSet={`https://flagcdn.com/w160/${code}.png 1x, https://flagcdn.com/w320/${code}.png 2x`}
+      width={64}
+      height={42}
+      loading="lazy"
+      alt={`${name} flag`}
+      className={`inline-block rounded-md shadow-sm border border-border/60 object-cover bg-white ${className}`}
+    />
+  );
+}
+
+const ACCREDS = [
+  { src: ugc.url, label: "UGC", full: "University Grants Commission" },
+  { src: aicte.url, label: "AICTE", full: "All India Council for Technical Education" },
+  { src: naac.url, label: "NAAC", full: "National Assessment & Accreditation Council" },
+];
+
+export function Accreditations({ className = "", compact }: { className?: string; compact?: boolean }) {
+  return (
+    <Section className={className}>
+      <div className="text-center mb-8">
+        <div className="inline-flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-brand">
+          <ShieldCheck className="h-4 w-4" /> Trust & Recognition
+        </div>
+        <h2 className="mt-2 text-3xl md:text-4xl font-bold text-primary">Accreditations & Approvals</h2>
+        {!compact && (
+          <p className="mt-3 text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
+            We guide students toward universities and online programs recognised by leading Indian regulatory and accreditation bodies.
+          </p>
+        )}
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-4xl mx-auto">
+        {ACCREDS.map((a) => (
+          <div
+            key={a.label}
+            className="flex flex-col items-center justify-center rounded-2xl border border-border bg-white p-6 shadow-card hover:shadow-lg transition"
+          >
+            <img
+              src={a.src}
+              alt={`${a.full} (${a.label})`}
+              loading="lazy"
+              className="h-20 w-20 object-contain"
+            />
+            <div className="mt-3 font-bold text-primary">{a.label}</div>
+            <div className="text-[11px] text-muted-foreground text-center mt-0.5">{a.full}</div>
+          </div>
+        ))}
+      </div>
+      <p className="mt-6 text-center text-xs text-muted-foreground italic max-w-3xl mx-auto">
+        Approvals, accreditations and recognitions may vary by university, program and academic year. Students are advised to verify the latest status before admission.
+      </p>
+    </Section>
   );
 }
