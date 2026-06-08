@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Globe2, ArrowRight } from "lucide-react";
 import { SiteLayout } from "@/components/site-layout";
-import { PageHero, Section, SectionHeading, CTAButton, CheckList } from "@/components/ui-bits";
+import { PageHero, Section, SectionHeading, CTAButton, CheckList, Flag } from "@/components/ui-bits";
 import { EnquiryForm } from "@/components/enquiry-form";
 import { COUNTRIES } from "@/data/countries";
 
@@ -41,10 +41,10 @@ function StudyAbroadPage() {
                     key={c.slug}
                     to="/study-abroad/$slug"
                     params={{ slug: c.slug }}
-                    className="group rounded-2xl border border-border bg-card p-5 shadow-card hover:border-brand transition flex items-start gap-4"
+                    className="group rounded-2xl border border-border bg-card p-5 shadow-card hover:border-brand hover:-translate-y-0.5 transition flex items-start gap-4"
                   >
-                    <div className="text-4xl shrink-0">{c.flag}</div>
-                    <div className="flex-1">
+                    <Flag code={c.code} name={c.name} className="h-12 w-16 shrink-0" />
+                    <div className="flex-1 min-w-0">
                       <h3 className="font-bold text-primary">{c.name}</h3>
                       <p className="text-xs text-muted-foreground mt-1 line-clamp-2">{c.tagline}</p>
                       <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-brand">
