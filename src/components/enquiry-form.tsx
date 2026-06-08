@@ -1,5 +1,4 @@
 import { useState, type FormEvent } from "react";
-import { SITE } from "@/data/site";
 
 type Props = {
   title?: string;
@@ -58,7 +57,7 @@ export function EnquiryForm({ title = "Get Free Counselling", defaultCourse = ""
         {submitting ? "Sending..." : "Send Enquiry"}
       </button>
       <p className="mt-2 text-[11px] text-muted-foreground text-center">
-        On submit, your enquiry opens in WhatsApp to <a className="underline" href={SITE.whatsapp}>{SITE.phone}</a>.
+        On submit, your enquiry opens in WhatsApp with our counsellor.
       </p>
     </form>
   );

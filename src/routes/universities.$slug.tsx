@@ -329,10 +329,10 @@ function UniversityPage({ u }: { u: University }) {
               <h4 className="font-bold text-primary">Quick Contact</h4>
               <div className="mt-3 flex flex-col gap-2">
                 <a href={SITE.telHref} className="inline-flex items-center justify-center gap-2 rounded-md bg-primary text-primary-foreground px-4 py-2.5 text-sm font-semibold hover:opacity-95">
-                  <Phone className="h-4 w-4" /> Call {SITE.phone}
+                  <Phone className="h-4 w-4" /> Call Us
                 </a>
                 <a href={SITE.whatsapp} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-md bg-success text-success-foreground px-4 py-2.5 text-sm font-semibold hover:opacity-95">
-                  <MessageCircle className="h-4 w-4" /> Talk to Counsellor
+                  <MessageCircle className="h-4 w-4" /> WhatsApp
                 </a>
               </div>
             </div>
