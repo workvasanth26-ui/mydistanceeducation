@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Building2, BadgeCheck, ArrowRight } from "lucide-react";
 import { SiteLayout } from "@/components/site-layout";
-import { PageHero, Section, CTAButton } from "@/components/ui-bits";
+import { PageHero, Section, CTAButton, Accreditations } from "@/components/ui-bits";
 import { EnquiryForm } from "@/components/enquiry-form";
 import { UNIVERSITIES } from "@/data/universities";
 
@@ -68,6 +68,7 @@ function UniversitiesPage() {
           </aside>
         </div>
       </Section>
+      <Accreditations className="bg-secondary/40" />
     </SiteLayout>
   );
 }
