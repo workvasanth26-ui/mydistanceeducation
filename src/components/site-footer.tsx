@@ -1,10 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Phone, Mail, MessageCircle, MapPin } from "lucide-react";
 import { NAV, SITE } from "@/data/site";
 import logo from "@/assets/mde-logo.png.asset.json";
-import ugc from "@/assets/ugc.png.asset.json";
-import aicte from "@/assets/aicte.png.asset.json";
-import naac from "@/assets/naac.png.asset.json";
 
 export function SiteFooter() {
   return (
@@ -12,7 +9,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-7xl px-4 md:px-6 py-12 grid gap-10 md:grid-cols-4">
         <div>
           <div className="flex items-center gap-3">
-            <img src={logo.url} alt="My Distance Education" className="h-12 w-12 object-contain bg-white rounded-md p-1" />
+            <img src={logo.url} alt="My Distance Education" width={48} height={48} className="h-12 w-12 object-contain bg-white rounded-md p-1" />
             <div>
               <div className="font-bold">My Distance Education</div>
               <div className="text-xs opacity-80">Online Degree & Study Abroad Counselling</div>
@@ -21,11 +18,6 @@ export function SiteFooter() {
           <p className="mt-4 text-sm opacity-85">
             Expert guidance for online UG, online PG, distance education and study abroad programs. Free counselling for students and working professionals across Chennai.
           </p>
-          <div className="mt-5 flex items-center gap-3">
-            <img src={ugc.url} alt="UGC" className="h-12 w-12 bg-white rounded-md p-1" />
-            <img src={aicte.url} alt="AICTE" className="h-12 w-12 bg-white rounded-md p-1" />
-            <img src={naac.url} alt="NAAC A+" className="h-12 w-12 bg-white rounded-md p-1" />
-          </div>
         </div>
 
         <div>
@@ -51,12 +43,22 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <h4 className="text-sm font-semibold mb-3 text-brand">Contact</h4>
-          <ul className="space-y-3 text-sm">
-            <li className="flex gap-2"><Phone className="h-4 w-4 mt-0.5 shrink-0 text-brand" /><a href={SITE.telHref} className="opacity-90 hover:opacity-100">{SITE.phone}</a></li>
-            <li className="flex gap-2"><Mail className="h-4 w-4 mt-0.5 shrink-0 text-brand" /><a href={SITE.mailHref} className="opacity-90 hover:opacity-100 break-all">{SITE.email}</a></li>
-            <li className="flex gap-2"><MapPin className="h-4 w-4 mt-0.5 shrink-0 text-brand" /><span className="opacity-90">{SITE.address}</span></li>
-          </ul>
+          <h4 className="text-sm font-semibold mb-3 text-brand">Get in Touch</h4>
+          <div className="flex flex-col gap-2">
+            <a href={SITE.telHref} aria-label="Call Us" className="inline-flex items-center gap-2 rounded-md bg-white/10 hover:bg-white/20 transition px-3 py-2 text-sm font-semibold">
+              <Phone className="h-4 w-4 text-brand" /> Call Us
+            </a>
+            <a href={SITE.mailHref} aria-label="Email Us" className="inline-flex items-center gap-2 rounded-md bg-white/10 hover:bg-white/20 transition px-3 py-2 text-sm font-semibold">
+              <Mail className="h-4 w-4 text-brand" /> Email Us
+            </a>
+            <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="inline-flex items-center gap-2 rounded-md bg-success text-success-foreground hover:opacity-95 transition px-3 py-2 text-sm font-semibold">
+              <MessageCircle className="h-4 w-4" /> WhatsApp
+            </a>
+          </div>
+          <div className="mt-4 flex items-start gap-2 text-xs opacity-90">
+            <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-brand" />
+            <span>{SITE.address}</span>
+          </div>
         </div>
       </div>
       <div className="border-t border-white/10">

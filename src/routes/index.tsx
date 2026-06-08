@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { GraduationCap, Globe2, BookOpen, Users, ShieldCheck, Phone, Award, Compass, BadgeCheck, ArrowRight, MessageCircle } from "lucide-react";
+import { GraduationCap, Globe2, BookOpen, Users, ShieldCheck, Phone, Award, Compass, BadgeCheck, ArrowRight, MessageCircle, Mail } from "lucide-react";
 import { SiteLayout } from "@/components/site-layout";
 import { EnquiryForm } from "@/components/enquiry-form";
-import { Section, SectionHeading, CTAButton, CardLink, CheckList } from "@/components/ui-bits";
+import { Section, SectionHeading, CTAButton, CardLink, CheckList, Flag, Accreditations } from "@/components/ui-bits";
 import { UG_COURSES, PG_COURSES } from "@/data/courses";
 import { COUNTRIES } from "@/data/countries";
 import { SITE } from "@/data/site";
@@ -179,9 +179,9 @@ function HomePage() {
                 key={c.slug}
                 to="/study-abroad/$slug"
                 params={{ slug: c.slug }}
-                className="group flex flex-col items-center gap-1.5 rounded-xl border border-border bg-card p-3 hover:border-brand transition"
+                className="group flex flex-col items-center gap-2 rounded-xl border border-border bg-card p-3 hover:border-brand hover:-translate-y-0.5 transition"
               >
-                <span className="text-3xl">{c.flag}</span>
+                <Flag code={c.code} name={c.name} className="h-9 w-14" />
                 <span className="text-[11px] font-medium text-center leading-tight">{c.name}</span>
               </Link>
             ))}
@@ -230,23 +230,34 @@ function HomePage() {
         </div>
       </Section>
 
+      {/* ACCREDITATIONS */}
+      <Accreditations className="bg-secondary/40" />
+
       {/* FINAL CTA */}
       <section className="border-t border-border" style={{ background: "var(--gradient-hero)" }}>
         <div className="mx-auto max-w-7xl px-4 md:px-6 py-14 text-primary-foreground grid md:grid-cols-3 gap-8 items-center">
           <div className="md:col-span-2">
             <h2 className="text-2xl md:text-4xl font-bold">Start your education journey today</h2>
-            <p className="mt-3 opacity-90 max-w-2xl">Speak with our academic counsellor and get clear guidance before admission. Call us or send a quick enquiry — it's free.</p>
+            <p className="mt-3 opacity-90 max-w-2xl">Speak with our academic counsellor and get clear guidance before admission — it's free.</p>
             <div className="mt-5 flex flex-wrap gap-3">
-              <CTAButton href={SITE.telHref}><Phone className="h-4 w-4" /> Call {SITE.phone}</CTAButton>
-              <CTAButton href={SITE.whatsapp} variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
-                <MessageCircle className="h-4 w-4" /> WhatsApp Us
+              <CTAButton href={SITE.telHref}><Phone className="h-4 w-4" /> Call Us</CTAButton>
+              <CTAButton href={SITE.mailHref} variant="outline" className="border-white text-white hover:bg-white hover:text-primary"><Mail className="h-4 w-4" /> Email Us</CTAButton>
+              <CTAButton href={SITE.whatsapp} target="_blank" rel="noopener noreferrer" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
+                <MessageCircle className="h-4 w-4" /> WhatsApp
               </CTAButton>
             </div>
           </div>
           <div className="rounded-2xl bg-white/10 backdrop-blur p-6 border border-white/15">
-            <div className="text-sm opacity-80">Reach us at</div>
-            <a href={SITE.telHref} className="block mt-1 text-2xl font-bold text-brand">{SITE.phone}</a>
-            <a href={SITE.mailHref} className="block mt-1 text-sm opacity-90 break-all">{SITE.email}</a>
+            <div className="text-sm opacity-80">Prefer a quick chat?</div>
+            <p className="mt-1 text-lg font-semibold">Our counsellors respond within a few hours during working hours.</p>
+            <div className="mt-4 flex flex-col gap-2">
+              <a href={SITE.telHref} className="inline-flex items-center justify-center gap-2 rounded-md bg-brand text-brand-foreground px-4 py-2.5 text-sm font-semibold hover:opacity-95">
+                <Phone className="h-4 w-4" /> Call Us
+              </a>
+              <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-md bg-success text-success-foreground px-4 py-2.5 text-sm font-semibold hover:opacity-95">
+                <MessageCircle className="h-4 w-4" /> WhatsApp
+              </a>
+            </div>
           </div>
         </div>
       </section>

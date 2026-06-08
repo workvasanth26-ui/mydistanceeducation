@@ -1,7 +1,7 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { ArrowLeft, CheckCircle2, Sparkles, BookOpen, MapPin } from "lucide-react";
 import { SiteLayout } from "@/components/site-layout";
-import { Section, CTAButton } from "@/components/ui-bits";
+import { Section, CTAButton, Flag } from "@/components/ui-bits";
 import { EnquiryForm } from "@/components/enquiry-form";
 import { getCountry } from "@/data/countries";
 
@@ -37,7 +37,7 @@ function CountryPage() {
             <ArrowLeft className="h-4 w-4" /> All Destinations
           </Link>
           <div className="mt-4 flex items-center gap-4">
-            <span className="text-6xl drop-shadow">{c.flag}</span>
+            <Flag code={c.code} name={c.name} className="h-16 w-24 shrink-0 shadow-lg" />
             <div>
               <div className="text-xs font-semibold tracking-widest uppercase text-brand">Study Abroad</div>
               <h1 className="text-3xl md:text-5xl font-bold">Study in {c.name}</h1>

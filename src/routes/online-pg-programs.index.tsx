@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { GraduationCap, ArrowRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
-import { PageHero, Section, CTAButton, CheckList, SectionHeading } from "@/components/ui-bits";
+import { PageHero, Section, CTAButton, CheckList, SectionHeading, Accreditations } from "@/components/ui-bits";
 import { EnquiryForm } from "@/components/enquiry-form";
 import { PG_COURSES } from "@/data/courses";
 
@@ -69,6 +69,7 @@ function PGPage() {
           </aside>
         </div>
       </Section>
+      <Accreditations className="bg-secondary/40" />
     </SiteLayout>
   );
 }
