@@ -28,7 +28,7 @@ export const Route = createFileRoute("/study-abroad/$slug")({
 });
 
 function CountryPage() {
-  const c = Route.useLoaderData()!;
+  const c = Route.useLoaderData() as NonNullable<ReturnType<typeof getCountry>>;
   return (
     <SiteLayout>
       <section className="border-b border-border" style={{ background: "var(--gradient-hero)" }}>
