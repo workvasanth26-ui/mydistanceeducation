@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X, Phone, Mail, MessageCircle } from "lucide-react";
-import { NAV, SITE } from "@/data/site";
+import { Menu, X } from "lucide-react";
+import { NAV } from "@/data/site";
 import logo from "@/assets/mde-logo.png.asset.json";
 
 export function SiteHeader() {
