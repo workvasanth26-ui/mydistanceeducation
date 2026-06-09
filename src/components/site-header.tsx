@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X, Phone, Mail, MessageCircle } from "lucide-react";
-import { NAV, SITE } from "@/data/site";
+import { Menu, X } from "lucide-react";
+import { NAV } from "@/data/site";
 import logo from "@/assets/mde-logo.png.asset.json";
 
 export function SiteHeader() {
@@ -44,29 +44,6 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-2">
-          <a
-            href={SITE.telHref}
-            aria-label="Call Us"
-            className="inline-flex items-center gap-1.5 rounded-md border border-border px-3 py-2 text-sm font-semibold text-primary hover:bg-accent transition"
-          >
-            <Phone className="h-4 w-4" /> Call Us
-          </a>
-          <a
-            href={SITE.mailHref}
-            aria-label="Email Us"
-            className="inline-flex items-center gap-1.5 rounded-md border border-border px-3 py-2 text-sm font-semibold text-primary hover:bg-accent transition"
-          >
-            <Mail className="h-4 w-4" /> Email Us
-          </a>
-          <a
-            href={SITE.whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Chat on WhatsApp"
-            className="inline-flex items-center gap-1.5 rounded-md border border-success px-3 py-2 text-sm font-semibold text-success hover:bg-success hover:text-success-foreground transition"
-          >
-            <MessageCircle className="h-4 w-4" /> WhatsApp
-          </a>
           <Link
             to="/contact"
             className="inline-flex items-center justify-center rounded-md bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground shadow-soft hover:opacity-95 transition"
@@ -82,21 +59,6 @@ export function SiteHeader() {
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
-      </div>
-
-      {/* Mobile compact contact buttons */}
-      <div className="lg:hidden border-t border-border bg-background">
-        <div className="mx-auto flex max-w-7xl items-center justify-center gap-2 px-3 py-2">
-          <a href={SITE.telHref} aria-label="Call Us" className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-md border border-border px-2 py-2 text-xs font-semibold text-primary">
-            <Phone className="h-4 w-4" /> Call
-          </a>
-          <a href={SITE.mailHref} aria-label="Email Us" className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-md border border-border px-2 py-2 text-xs font-semibold text-primary">
-            <Mail className="h-4 w-4" /> Email
-          </a>
-          <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-md border border-success px-2 py-2 text-xs font-semibold text-success">
-            <MessageCircle className="h-4 w-4" /> WhatsApp
-          </a>
-        </div>
       </div>
 
       {open && (
