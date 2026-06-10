@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { NAV } from "@/data/site";
-import logo from "@/assets/mde-logo.png.asset.json";
+const logo = { url: "/logo.png" };
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
