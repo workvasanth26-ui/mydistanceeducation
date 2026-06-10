@@ -1,0 +1,19 @@
+# My Distance Education
+
+> Chennai-based academic counselling for online UG, online PG, distance education and study abroad programs at UGC, AICTE and NAAC accredited universities.
+
+My Distance Education helps students, working professionals and parents choose the right online degree, distance education program, university or study abroad option. Free counselling covers eligibility, course selection, university comparison, fees and the full admission process.
+
+## Pages
+
+- [Home](/): Overview of online UG, PG, distance education and study abroad guidance.
+- [About Us](/about): Who we are, our mission, vision and the learners we help.
+- [Online UG Programs](/online-ug-programs): BA, BBA, BCA and B.Com guidance for students after 12th.
+- [Online PG Programs](/online-pg-programs): MBA, MCA, MA and M.Com guidance for graduates and working professionals.
+- [Universities](/universities): UGC-entitled online and distance learning universities we guide for.
+- [Study Abroad](/study-abroad): Country-wise counselling for UK, USA, Canada, Australia, Germany and more.
+- [Contact](/contact): Talk to a counsellor by phone, email or WhatsApp.
+
+## Optional
+
+- [Privacy Policy](/privacy-policy): How we handle enquiry information.
