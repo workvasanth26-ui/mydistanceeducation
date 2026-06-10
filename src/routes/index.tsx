@@ -10,12 +10,38 @@ import { SITE } from "@/data/site";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Online Degree & Distance Education Guidance in Chennai | My Distance Education" },
+      { title: "Online Degree & Distance Education Guidance | Chennai" },
       { name: "description", content: "Get expert guidance for online UG, online PG, distance education and study abroad programs. Free counselling for MBA, MCA, BBA, BCA, B.Com, BA, MA and M.Com." },
       { name: "keywords", content: "online degree admission in Chennai, distance education in Chennai, online UG programs, online PG programs, online MBA admission, study abroad counselling in Chennai" },
-      { property: "og:title", content: "Online Degree & Distance Education Guidance in Chennai" },
-      { property: "og:description", content: "Free counselling for online UG, PG, distance education and study abroad programs." },
+      { property: "og:title", content: "Online Degree & Distance Education Guidance | Chennai" },
+      { property: "og:description", content: "Free counselling for online UG, PG, distance education and study abroad programs at accredited Indian universities." },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://mydistanceeducation.lovable.app/" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://mydistanceeducation.lovable.app/" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "EducationalOrganization",
+          name: "My Distance Education",
+          url: "https://mydistanceeducation.lovable.app/",
+          logo: "https://mydistanceeducation.lovable.app/logo.png",
+          description:
+            "Chennai-based academic counselling for online UG, PG, distance education and study abroad programs at UGC, AICTE and NAAC accredited universities.",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "2nd Floor, Sam Noah Tower, B5, 2nd Avenue, Anna Nagar East",
+            addressLocality: "Chennai",
+            postalCode: "600102",
+            addressCountry: "IN",
+          },
+          telephone: "+91-7305075766",
+        }),
+      },
     ],
   }),
   component: HomePage,

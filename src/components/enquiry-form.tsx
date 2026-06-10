@@ -40,14 +40,14 @@ export function EnquiryForm({ title = "Get Free Counselling", defaultCourse = ""
         <p className="text-xs text-muted-foreground">Talk to our counsellor — no fees, no spam.</p>
       </div>
       <div className="grid gap-3 md:grid-cols-2">
-        <Field name="name" placeholder="Full Name *" required />
-        <Field name="mobile" type="tel" placeholder="Mobile Number *" required pattern="[0-9+\\-\\s]{7,15}" />
-        <Field name="email" type="email" placeholder="Email ID *" required />
-        <Field name="qualification" placeholder="Highest Qualification *" required />
-        <Field name="course" placeholder="Course Interested *" required defaultValue={defaultCourse} />
-        <Field name="preferred" placeholder="Preferred University / Country" defaultValue={defaultUniversity} />
-        <Field name="city" placeholder="City *" required />
-        <Field name="message" placeholder="Message (optional)" className="md:col-span-2" textarea />
+        <Field name="name" placeholder="Full Name *" aria-label="Full Name" required />
+        <Field name="mobile" type="tel" placeholder="Mobile Number *" aria-label="Mobile Number" required pattern="[0-9+\\-\\s]{7,15}" />
+        <Field name="email" type="email" placeholder="Email ID *" aria-label="Email ID" required />
+        <Field name="qualification" placeholder="Highest Qualification *" aria-label="Highest Qualification" required />
+        <Field name="course" placeholder="Course Interested *" aria-label="Course Interested" required defaultValue={defaultCourse} />
+        <Field name="preferred" placeholder="Preferred University / Country" aria-label="Preferred University or Country" defaultValue={defaultUniversity} />
+        <Field name="city" placeholder="City *" aria-label="City" required />
+        <Field name="message" placeholder="Message (optional)" aria-label="Message" className="md:col-span-2" textarea />
       </div>
       <button
         type="submit"
