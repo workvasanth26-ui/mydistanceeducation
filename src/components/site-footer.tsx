@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Phone, Mail, MessageCircle, MapPin } from "lucide-react";
 import { NAV, SITE } from "@/data/site";
-import logo from "@/assets/mde-logo.png.asset.json";
+const logo = { url: "/logo.png" };
 
 export function SiteFooter() {
   return (
