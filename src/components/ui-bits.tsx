@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, ShieldCheck } from "lucide-react";
-import ugc from "@/assets/ugc.png.asset.json";
-import aicte from "@/assets/aicte.png.asset.json";
-import naac from "@/assets/naac.png.asset.json";
+const ugc = { url: "/ugc.png" };
+const aicte = { url: "/aicte.png" };
+const naac = { url: "/naac.png" };
 
 export function Section({ children, className = "", id }: { children: ReactNode; className?: string; id?: string }) {
   return (
