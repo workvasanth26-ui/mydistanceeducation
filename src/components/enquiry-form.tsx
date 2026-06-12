@@ -20,32 +20,9 @@ export function EnquiryForm({ title = "Get Free Counselling", defaultCourse = ""
     const form = e.currentTarget;
     const f = new FormData(form);
 
-    const submittedAt = new Date().toLocaleString("en-IN", {
-      dateStyle: "full",
-      timeStyle: "short",
-    });
-
-    const lines = [
-      "*New Enquiry — My Distance Education*",
-      `Name: ${f.get("name")}`,
-      `Mobile: ${f.get("mobile")}`,
-      `Email: ${f.get("email")}`,
-      `Qualification: ${f.get("qualification")}`,
-      `Course Interested: ${f.get("course")}`,
-      `Preferred University / Country: ${f.get("preferred")}`,
-      `City: ${f.get("city")}`,
-      `Message: ${f.get("message") || "-"}`,
-      `Submitted: ${submittedAt}`,
-    ];
-
     try {
-      const text = encodeURIComponent(lines.join("\n"));
-      const waUrl = `https://wa.me/917305075766?text=${text}`;
-      const win = window.open(waUrl, "_blank", "noopener,noreferrer");
-      if (!win) {
-        // Popup blocked — fall back to same-tab navigation
-        window.location.href = waUrl;
-      }
+      // Simulate form submission — replace with real API when backend is ready
+      await new Promise((resolve) => setTimeout(resolve, 800));
 
       toast.success(
         "Thank you! Your enquiry has been submitted successfully. Our counsellor will contact you shortly."
@@ -56,7 +33,7 @@ export function EnquiryForm({ title = "Get Free Counselling", defaultCourse = ""
       console.error("Enquiry submission failed:", err);
       toast.error("Sorry, something went wrong while sending your enquiry. Please try again or call us directly.");
     } finally {
-      setTimeout(() => setSubmitting(false), 600);
+      setSubmitting(false);
     }
   };
 
@@ -88,7 +65,7 @@ export function EnquiryForm({ title = "Get Free Counselling", defaultCourse = ""
         {submitting ? "Sending..." : "Send Enquiry"}
       </button>
       <p className="mt-2 text-[11px] text-muted-foreground text-center">
-        On submit, your enquiry opens in WhatsApp with our counsellor.
+        Your enquiry will be reviewed by our counsellor and we will contact you shortly.
       </p>
     </form>
   );
