@@ -1,4 +1,5 @@
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
+import { toast } from "sonner";
 
 type Props = {
   title?: string;
@@ -9,11 +10,21 @@ type Props = {
 
 export function EnquiryForm({ title = "Get Free Counselling", defaultCourse = "", defaultUniversity = "", compact }: Props) {
   const [submitting, setSubmitting] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (submitting) return;
     setSubmitting(true);
-    const f = new FormData(e.currentTarget);
+
+    const form = e.currentTarget;
+    const f = new FormData(form);
+
+    const submittedAt = new Date().toLocaleString("en-IN", {
+      dateStyle: "full",
+      timeStyle: "short",
+    });
+
     const lines = [
       "*New Enquiry — My Distance Education*",
       `Name: ${f.get("name")}`,
@@ -24,14 +35,34 @@ export function EnquiryForm({ title = "Get Free Counselling", defaultCourse = ""
       `Preferred University / Country: ${f.get("preferred")}`,
       `City: ${f.get("city")}`,
       `Message: ${f.get("message") || "-"}`,
+      `Submitted: ${submittedAt}`,
     ];
-    const text = encodeURIComponent(lines.join("\n"));
-    window.open(`https://wa.me/917305075766?text=${text}`, "_blank", "noopener,noreferrer");
-    setTimeout(() => setSubmitting(false), 800);
+
+    try {
+      const text = encodeURIComponent(lines.join("\n"));
+      const waUrl = `https://wa.me/917305075766?text=${text}`;
+      const win = window.open(waUrl, "_blank", "noopener,noreferrer");
+      if (!win) {
+        // Popup blocked — fall back to same-tab navigation
+        window.location.href = waUrl;
+      }
+
+      toast.success(
+        "Thank you! Your enquiry has been submitted successfully. Our counsellor will contact you shortly."
+      );
+      form.reset();
+      formRef.current?.reset();
+    } catch (err) {
+      console.error("Enquiry submission failed:", err);
+      toast.error("Sorry, something went wrong while sending your enquiry. Please try again or call us directly.");
+    } finally {
+      setTimeout(() => setSubmitting(false), 600);
+    }
   };
 
   return (
     <form
+      ref={formRef}
       onSubmit={onSubmit}
       className={`rounded-2xl border border-border bg-card p-5 md:p-6 shadow-card ${compact ? "" : ""}`}
     >
