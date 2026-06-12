@@ -65,7 +65,7 @@ export function EnquiryForm({ title = "Get Free Counselling", defaultCourse = ""
         {submitting ? "Sending..." : "Send Enquiry"}
       </button>
       <p className="mt-2 text-[11px] text-muted-foreground text-center">
-        On submit, your enquiry opens in WhatsApp with our counsellor.
+        Your enquiry will be reviewed by our counsellor and we will contact you shortly.
       </p>
     </form>
   );
