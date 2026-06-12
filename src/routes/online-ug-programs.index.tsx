@@ -33,13 +33,13 @@ export const Route = createFileRoute("/online-ug-programs/")({
       { property: "og:title", content: "Online UG Programs Admission Guidance in Chennai" },
       { property: "og:description", content: "UGC-entitled Online BA, BBA, BCA and B.Com admission guidance in Chennai. Free counselling, university comparison and fee details." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://mydistanceeducation.lovable.app/online-ug-programs" },
+      { property: "og:url", content: "https://mydistanceeducation.com/online-ug-programs" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:title", content: "Online UG Programs Admission Guidance in Chennai" },
       { name: "twitter:description", content: "Online BA, BBA, BCA and B.Com admission guidance in Chennai." },
     ],
     links: [
-      { rel: "canonical", href: "https://mydistanceeducation.lovable.app/online-ug-programs" },
+      { rel: "canonical", href: "https://mydistanceeducation.com/online-ug-programs" },
     ],
     scripts: [
       {
