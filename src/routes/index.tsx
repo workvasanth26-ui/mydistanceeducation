@@ -16,10 +16,10 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Online Degree & Distance Education Guidance | Chennai" },
       { property: "og:description", content: "Free counselling for online UG, PG, distance education and study abroad programs at accredited Indian universities." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://mydistanceeducation.lovable.app/" },
+      { property: "og:url", content: "https://mydistanceeducation.com/" },
     ],
     links: [
-      { rel: "canonical", href: "https://mydistanceeducation.lovable.app/" },
+      { rel: "canonical", href: "https://mydistanceeducation.com/" },
     ],
     scripts: [
       {
@@ -28,8 +28,8 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "EducationalOrganization",
           name: "My Distance Education",
-          url: "https://mydistanceeducation.lovable.app/",
-          logo: "https://mydistanceeducation.lovable.app/logo.png",
+          url: "https://mydistanceeducation.com/",
+          logo: "https://mydistanceeducation.com/logo.png",
           description:
             "Chennai-based academic counselling for online UG, PG, distance education and study abroad programs at UGC, AICTE and NAAC accredited universities.",
           address: {

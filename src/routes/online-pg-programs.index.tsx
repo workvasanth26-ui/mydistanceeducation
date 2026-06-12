@@ -33,13 +33,13 @@ export const Route = createFileRoute("/online-pg-programs/")({
       { property: "og:title", content: "Online PG Programs Admission Guidance in Chennai" },
       { property: "og:description", content: "UGC-entitled Online MBA, MCA, MA and M.Com admission guidance in Chennai. Free counselling, university comparison and fee details." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://mydistanceeducation.lovable.app/online-pg-programs" },
+      { property: "og:url", content: "https://mydistanceeducation.com/online-pg-programs" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:title", content: "Online PG Programs Admission Guidance in Chennai" },
       { name: "twitter:description", content: "Online MBA, MCA, MA and M.Com admission guidance in Chennai." },
     ],
     links: [
-      { rel: "canonical", href: "https://mydistanceeducation.lovable.app/online-pg-programs" },
+      { rel: "canonical", href: "https://mydistanceeducation.com/online-pg-programs" },
     ],
     scripts: [
       {
