@@ -20,18 +20,66 @@ export function EnquiryForm({ title = "Get Free Counselling", defaultCourse = ""
     const form = e.currentTarget;
     const f = new FormData(form);
 
-    try {
-      // Simulate form submission — replace with real API when backend is ready
-      await new Promise((resolve) => setTimeout(resolve, 800));
+    const fullName = String(f.get("name") || "");
+    const mobile = String(f.get("mobile") || "");
+    const email = String(f.get("email") || "");
+    const qualification = String(f.get("qualification") || "");
+    const course = String(f.get("course") || "");
+    const preferredUniversity = String(f.get("preferred") || "");
+    const city = String(f.get("city") || "");
+    const message = String(f.get("message") || "");
+    const submittedDateTime = new Date().toLocaleString();
 
-      toast.success(
-        "Thank you! Your enquiry has been submitted successfully. Our counsellor will contact you shortly."
-      );
+    const payload = {
+      access_key: "77a03d0b-b65c-46ca-badc-ec8d06eedfba",
+      subject: "New Enquiry from My Distance Education Website",
+      from_name: "My Distance Education Website",
+      to: "onlinelearning1323@gmail.com",
+      "Full Name": fullName,
+      "Mobile Number": mobile,
+      "Email ID": email,
+      "Highest Qualification": qualification,
+      "Course Interested": course,
+      "Preferred University / Country": preferredUniversity,
+      "City": city,
+      "Message": message,
+      "Submitted Date & Time": submittedDateTime,
+    };
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.success) {
+        throw new Error(data?.message || "Submission failed");
+      }
+
+      toast.success("Thank you for your enquiry. Redirecting to WhatsApp...");
       form.reset();
       formRef.current?.reset();
+
+      const waText =
+        `New Enquiry from My Distance Education Website\n\n` +
+        `Full Name: ${fullName}\n` +
+        `Mobile Number: ${mobile}\n` +
+        `Email ID: ${email}\n` +
+        `Highest Qualification: ${qualification}\n` +
+        `Course Interested: ${course}\n` +
+        `Preferred University / Country: ${preferredUniversity}\n` +
+        `City: ${city}\n` +
+        `Message: ${message}\n` +
+        `Submitted Date & Time: ${submittedDateTime}`;
+      const waUrl = `https://wa.me/917305075766?text=${encodeURIComponent(waText)}`;
+
+      setTimeout(() => {
+        window.open(waUrl, "_blank", "noopener,noreferrer");
+      }, 2000);
     } catch (err) {
       console.error("Enquiry submission failed:", err);
-      toast.error("Sorry, something went wrong while sending your enquiry. Please try again or call us directly.");
+      toast.error("Sorry, we couldn't send your enquiry. Please try again or call us directly.");
     } finally {
       setSubmitting(false);
     }
