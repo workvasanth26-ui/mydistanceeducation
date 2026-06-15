@@ -15,9 +15,14 @@ export function EnquiryForm({ title = "Get Free Counselling", defaultCourse = ""
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (submitting) return;
-    setSubmitting(true);
 
     const form = e.currentTarget;
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    setSubmitting(true);
     const f = new FormData(form);
 
     const fullName = String(f.get("name") || "");
@@ -62,7 +67,7 @@ export function EnquiryForm({ title = "Get Free Counselling", defaultCourse = ""
       formRef.current?.reset();
 
       const waText =
-        `New Enquiry from My Distance Education Website\n\n` +
+        `Hello, I would like to enquire about admission.\n\n` +
         `Full Name: ${fullName}\n` +
         `Mobile Number: ${mobile}\n` +
         `Email ID: ${email}\n` +
@@ -70,8 +75,7 @@ export function EnquiryForm({ title = "Get Free Counselling", defaultCourse = ""
         `Course Interested: ${course}\n` +
         `Preferred University / Country: ${preferredUniversity}\n` +
         `City: ${city}\n` +
-        `Message: ${message}\n` +
-        `Submitted Date & Time: ${submittedDateTime}`;
+        `Message: ${message}`;
       const waUrl = `https://wa.me/917305075766?text=${encodeURIComponent(waText)}`;
 
       setTimeout(() => {
