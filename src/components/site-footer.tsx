@@ -65,9 +65,7 @@ export function SiteFooter() {
         <div className="mx-auto max-w-7xl px-4 md:px-6 py-4 text-xs flex flex-col md:flex-row justify-between items-center gap-2 opacity-80 text-center md:text-left">
           <p>© {new Date().getFullYear()} My Distance Education. All rights reserved.</p>
           <p>
-            Online degree counselling Chennai • Distance education admission guidance
-            <span className="hidden md:inline"> • </span>
-            <span className="block md:inline mt-1 md:mt-0">
+            <span>
               Designed & Developed by{" "}
               <a
                 href="https://wearealro.lovable.app/"
