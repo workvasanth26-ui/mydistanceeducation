@@ -62,9 +62,23 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-white/10">
-        <div className="mx-auto max-w-7xl px-4 md:px-6 py-4 text-xs flex flex-col md:flex-row justify-between gap-2 opacity-80">
+        <div className="mx-auto max-w-7xl px-4 md:px-6 py-4 text-xs flex flex-col md:flex-row justify-between items-center gap-2 opacity-80 text-center md:text-left">
           <p>© {new Date().getFullYear()} My Distance Education. All rights reserved.</p>
-          <p>Online degree counselling Chennai • Distance education admission guidance</p>
+          <p>
+            Online degree counselling Chennai • Distance education admission guidance
+            <span className="hidden md:inline"> • </span>
+            <span className="block md:inline mt-1 md:mt-0">
+              Designed & Developed by{" "}
+              <a
+                href="https://wearealro.lovable.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium hover:text-brand transition-colors"
+              >
+                ALRO
+              </a>
+            </span>
+          </p>
         </div>
       </div>
     </footer>
